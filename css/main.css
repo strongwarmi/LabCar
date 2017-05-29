@@ -1,6 +1,16 @@
 *{
   color: white;
 }
+.open-sans{
+  font-family: 'Open Sans', sans-serif;
+}
+.raleway{
+  font-family: 'Raleway', sans-serif;
+}
+.bg-lab{
+  background-color: #f7b617;
+}
+/*header - menu*/
 header{
   height: 100px;
 }
@@ -9,12 +19,6 @@ header ul li{
   color: #2b2b2b;
   margin: 15px;
 }
-.open-sans{
-  font-family: 'Open Sans', sans-serif;
-}
-.raleway{
-  font-family: 'Raleway', sans-serif;
-}
 .menu{
   display: flex;
   align-items: center;
@@ -22,6 +26,74 @@ header ul li{
 }
 #hamburguer span{
   color: #adadad;
+}
+/*hero*/
+#hero{
+  background-image: url('../assets/img/taxi.jpg');
+  background-size: cover;
+  background-position:bottom;
+  background-repeat: no-repeat;
+  height: 700px;
+  width: 100%;
+}
+#hero h1{
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+#hero h3{
+  margin-top: 5px;
+}
+#hero .btn{
+  color: #000;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.container-hero{
+  width: 80%;
+  position: absolute;
+  right: 0;
+  padding: 30px;
+  top:40%;
+}
+@media (min-width: 767px){
+  .container-hero {
+    width: 40%;
+  }
+}
+@media (max-width:767px){
+  #hero{
+    height: 550px;
+  }
+}
+/* info */
+#info{
+  height: 530px;
+  padding-top: 30px;
+}
+.container-info{
+  border: 1px solid #fff;
+  width: 80%;
+  position: absolute;
+  left: 0;
+  padding: 30px;
+}
+#info p{
+  font-size: 20px;
+}
+@media (max-width: 767px){
+  #info img {
+    width: 70%;
+  }
+  #info{
+    height: 450px;
+  }
+  .container-info{
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    width: 90%;
+    margin-bottom: 30px;
+  }
 }
 /*footer*/
 footer{
@@ -37,5 +109,5 @@ footer ul li{
 @media (max-width: 767px){
   .store {
     width: 100%;
-}
+  }
 }
