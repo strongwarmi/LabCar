@@ -69,6 +69,16 @@ header ul li{
     height: 550px;
   }
 }
+#hero .form-control{
+  background-color: transparent;
+  border-color: #fff;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  bo
+  color: #2b2b2b;
+}
 /* info */
 #info{
   height: 530px;
@@ -123,6 +133,36 @@ header ul li{
     height: 450px;
     right: 0;
   }
+}
+/*tarifa*/
+#tarifa{
+  padding: 30px 0;
+}
+@media (max-width:767px){
+  #tarifa{
+    padding: 100px 0;
+  }
+}
+.form-control{
+  background-color: transparent;
+  border-color: #fff;
+  color: #2b2b2b;
+}
+.form-control[placeholder] {
+  color: #fff;
+}
+.form-control::-webkit-input-placeholder {
+  color: #fff;
+}
+.form-control:-moz-placeholder {
+  color: #fff;
+}
+.mapa{
+  padding: 10px;
+  border: 1px solid #fff;
+}
+#map {
+  height: 400px;
 }
 /*footer*/
 footer{

@@ -57,9 +57,9 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <h6>REGISTRATE</h6><br>
-              <input class="form-control" type="text" name="" value="">
-              <button class="btn btn-default" type="button" name="button">Conviértete en un conductor</button>
+              <h6>REGÍSTRATE</h6><br>
+              <input class="form-control" type="text" >
+              <button class="btn btn-default" type="button">Conviértete en un conductor</button>
             </div>
           </div>
         </div>
@@ -111,7 +111,40 @@
         </div>
       </div>
     </section>
-    <section id="tarifa"></section>
+    <section id="tarifa" class="bg-lab">
+      <div class="container">
+        <div class="col-sm-12 col-lg-6">
+          <div class="row">
+            <h2 class="raleway"><strong>Tarifas</strong></h2>
+            <p class="open-sans">Consulta las tarifas LabCar aquí</p>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 col-lg-1">
+              <img src="assets/img/circulo.png" alt="">
+            </div>
+            <div class="col-xs-10 col-lg-11">
+              <input id="inputPartida" class="form-group form-control open-sans" placeholder="Ingrese punto de partida" type="text" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-2 col-lg-1">
+              <img src="assets/img/flecha.png" alt="">
+            </div>
+            <div class="col-xs-10 col-lg-11">
+              <input id="inputDestino" class="form-group form-control open-sans" placeholder="Ingrese su destino" type="text" name="" value="">
+            </div>
+          </div>
+          <div class="row text-center">
+            <button type="button" class="btn btn-default raleway">¡TRAZAR RUTA!</button>
+          </div>
+        </div>
+        <div class="col-lg-6 hidden-xs hidden-sm">
+          <div class="mapa">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="open-sans">
       <div class="container">
         <div class="row">
@@ -168,5 +201,6 @@
     <!-- Incluir todos tus scripts apartir de este punto -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
+    <script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIXR6LyO9SIpcja8s4MWz9sMhoD-zcKGg&callback=initMap&libraries=places"> </script>
   </body>
 </html>
