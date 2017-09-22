@@ -29,16 +29,22 @@
               </ul>
             </div>
           </div>
-          <div id="menu-vertical" style="display:none;background-color:#fff;" class="col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg">
-            <ul class="open-sans list-unstyled">
-              <li>Viaja</li>
-              <li>Conduce</li>
-              <li>Inicia sesión</li>
-            </ul>
-          </div>
-        </div>
       </nav>
     </header>
+    <section class="menu-mobile">
+        <div class="container">
+              <div class="row">
+                  <div id="menu-vertical" style="display:none;background-color:#fff;" class="col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg">
+                    <ul class="open-sans list-unstyled">
+                      <li>Viaja</li>
+                      <li>Conduce</li>
+                      <li>Inicia sesión</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
     <section id="hero" class="raleway">
       <div class="bg-lab container-hero">
         <div class="hidden-xs hidden-sm">
@@ -56,8 +62,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 form-inline">
               <h6>REGÍSTRATE</h6><br>
+              <input class="form-control" type="text" >
+              <span style="margin: 60px;">O bien</span>
               <input class="form-control" type="text" >
               <button class="btn btn-default" type="button">Conviértete en un conductor</button>
             </div>
@@ -87,7 +95,7 @@
             <h2 class="raleway"><strong>La nueva app</strong></h2>
           </div>
           <div class="col-xs-12 cols-sm-12 col-lg-5 col-lg-offset-1">
-            <img src="assets/img/celular.png" alt="">
+            <img src="assets/img/celular.png" alt="" >
           </div>
           <div class="col-lg-5 hidden-sm hidden-xs">
             <h2 class="raleway"><strong>Descarga la nueva app</strong></h2>
@@ -106,14 +114,14 @@
           <div class="col-sm-10 col-lg-10">
             <h2 class="raleway"><strong>Conduce cuando quieras</strong></h2>
             <p class="open-sans">LabCar es una opción flexible para alcanzar tus metas financieras</p>
-            <button class="btn btn-default bg-lab" type="button" name="button">Conviértete en un conductor</button>
+            <button class="btn btn-default bg-lab btn-lg text-white" type="button" name="button">Conviértete en un conductor</button>
           </div>
         </div>
       </div>
     </section>
     <section id="tarifa" class="bg-lab">
       <div class="container">
-        <div class="col-sm-12 col-lg-6">
+        <div class="col-sm-12 col-lg-5">
           <div class="row">
             <h2 class="raleway"><strong>Tarifas</strong></h2>
             <p class="open-sans">Consulta las tarifas LabCar aquí</p>
@@ -123,7 +131,7 @@
               <img src="assets/img/circulo.png" alt="">
             </div>
             <div class="col-xs-10 col-lg-11">
-              <input id="inputPartida" class="form-group form-control open-sans" placeholder="Ingrese punto de partida" type="text" >
+              <input id="punto-partida" class="form-group form-control open-sans" placeholder="Ingrese punto de partida" type="text" >
             </div>
           </div>
           <div class="row">
@@ -131,14 +139,17 @@
               <img src="assets/img/flecha.png" alt="">
             </div>
             <div class="col-xs-10 col-lg-11">
-              <input id="inputDestino" class="form-group form-control open-sans" placeholder="Ingrese su destino" type="text" name="" value="">
+              <input id="punto-destino" class="form-group form-control open-sans" placeholder="Ingrese su destino" type="text" name="" value="">
             </div>
           </div>
           <div class="row text-center">
-            <button type="button" class="btn btn-default raleway">¡TRAZAR RUTA!</button>
+            <button id="trazar-ruta" type="button" class="btn btn-default raleway">¡TRAZAR RUTA!</button>
+          </div>
+          <div class="row text-center">
+            <h2 id="costo"></h2>
           </div>
         </div>
-        <div class="col-lg-6 hidden-xs hidden-sm">
+        <div class="col-lg-6 col-lg-offset-1 hidden-xs hidden-sm">
           <div class="mapa">
             <div id="map"></div>
           </div>
@@ -181,10 +192,10 @@
             </div>
           </div>
           <div class="col-xs-6">
-            <div class="col-xs-6 col-md-3 col-lg-3 col-lg-pull-12">
-              <img src="assets/img/redes-sociales.jpg" alt="">
+            <div id="red-soclial" class="col-xs-6 col-md-3 col-lg-3 col-lg-pull-12">
+              <img id="social" src="assets/img/redes-sociales.jpg" alt="">
             </div>
-            <div class="col-lg-3 col-md-3 col-lg-push-3">
+            <div id="store-app" class="col-lg-3 col-md-3 col-lg-push-3">
               <img class="store" src="assets/img/app-store.png" alt="">
               <img class="store" src="assets/img/google-play.png" alt="">
             </div>

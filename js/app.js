@@ -1,44 +1,88 @@
-var menuEscondido = document.getElementById('menu-vertical');
-hamburguer.addEventListener("click",function(){
-    menuEscondido.style.display="block";
-});
+
 function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-// autocompleta los inputs con la direccion que se escriba
-var inputPartida=document.getElementById("inputPartida");
-var inputDestino=document.getElementById("inputDestino");
+  
+  var menuEscondido = document.getElementById('menu-vertical');
+  hamburguer.addEventListener("click",function(){
+      event.preventDefault();
+      if(menuEscondido.style.display != "block"){
+          menuEscondido.style.display="block";
+      }
+      else{
+          menuEscondido.style.display="none";
+      }
+  });
+
+  var laboratorialima = {lat: -12.1191427, lng: -77.0340046};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: laboratorialima
+  });
+
+var funcionError = function(error){
+  alert("tenemos un problema para encontrar la ubicación");
+}
+var  latitud, longitud, miUbicacion;
+var funcionExito = function(posicion){
+  latitud= posicion.coords.latitude;
+  longitud = posicion.coords.longitude;
+
+    map.setZoom(18);
+    map.setCenter({lat: latitud, lng: longitud});
+   miUbicacion =  new google.maps.Marker({
+    position: {lat: latitud, lng: longitud},
+    map: map,
+  });
+}
+
+function buscar(){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(funcionExito, funcionError);
+  }
+}
+
+var inputPartida = document.getElementById("punto-partida");
+var inputDestino = document.getElementById("punto-destino");
+
 new google.maps.places.Autocomplete(inputPartida);
 new google.maps.places.Autocomplete(inputDestino);
-// Try HTML5 geolocation.
-if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function(position) {
-           var pos = {
-             lat: position.coords.latitude,
-             lng: position.coords.longitude
-           };
 
-           infoWindow.setPosition(pos);
-           infoWindow.setContent('Location found.');
-           map.setCenter(pos);
-         }, function() {
-           handleLocationError(true, infoWindow, map.getCenter());
-         });
-       } else {
-         // Browser doesn't support Geolocation
-         handleLocationError(false, infoWindow, map.getCenter());
-       }
-}//fin initmap
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
+var directionsService = new google.maps.DirectionsService;
+var directionsDisplay = new google.maps.DirectionsRenderer;
+
+var tarifa = document.getElementById("costo");
+
+var calculateAndDisplayRoute = function(directionsService, directionsDisplay){
+  directionsService.route({
+    origin: inputPartida.value,
+    destination: inputDestino.value,
+    travelMode:'DRIVING'
+   }, function (response, status){
+        if(status==='OK'){
+          var distancia = Number((response.routes[0].legs[0].distance.text.replace("km", "")).replace(",","."));
+          tarifa.classList.remove("none");
+          var costo = distancia*1.75;
+          if(costo<4){
+            tarifa.innerHTML = "S/. 4"
+          }
+
+          tarifa.innerHTML = "S/. " + parseInt(costo);
+
+          console.log(response.routes[0].legs[0].distance.text);
+
+          directionsDisplay.setDirections(response);
+        }
+        else{
+          window.alert("no encontramos una ruta.")
+        }
+  });
+}
+
+directionsDisplay.setMap(map);
+
+var trazarRuta = function(){
+  miUbicacion.setMap(null);
+  calculateAndDisplayRoute(directionsService, directionsDisplay);
+};
+window.addEventListener("load",buscar);
+document.getElementById("trazar-ruta").addEventListener("click", trazarRuta)
+
+}
